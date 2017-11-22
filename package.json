@@ -1,0 +1,36 @@
+{
+  "name": "fastify-nodemailer",
+  "version": "0.1.0",
+  "description": "Fastify nodemailer plugin",
+  "main": "index.js",
+  "scripts": {
+    "lint": "standard --fix",
+    "test": " npm run lint && tap test.js",
+    "coverage": "nyc tap test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lependu/fastify-nodemailer.git"
+  },
+  "keywords": [
+    "nodejs",
+    "fastify",
+    "nodemailer"
+  ],
+  "author": "Akos Kovács <lependu@protonmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lependu/fastify-nodemailer/issues"
+  },
+  "homepage": "https://github.com/lependu/fastify-nodemailer#readme",
+  "devDependencies": {
+    "fastify": "^0.35.0",
+    "nyc": "^11.3.0",
+    "standard": "^10.0.3",
+    "tap": "^10.7.3"
+  },
+  "dependencies": {
+    "fastify-plugin": "^0.1.1",
+    "nodemailer": "^4.4.0"
+  }
+}
