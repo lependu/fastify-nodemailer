@@ -2,6 +2,7 @@
 
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](http://standardjs.com/)
 [![Build Status](https://travis-ci.org/lependu/fastify-nodemailer.svg?branch=0.1.0)](https://travis-ci.org/lependu/fastify-nodemailer)
+[![Greenkeeper badge](https://badges.greenkeeper.io/lependu/fastify-nodemailer.svg)](https://greenkeeper.io/)
 
 Fastify nodemailer plugin, with this you can share the same nodemailer transport in every part of your server.
 
