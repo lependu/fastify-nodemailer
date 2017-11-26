@@ -1,10 +1,10 @@
 # fastify-nodemailer
 
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](http://standardjs.com/)
-[![Build Status](https://travis-ci.org/lependu/fastify-nodemailer.svg?branch=0.1.0)](https://travis-ci.org/lependu/fastify-nodemailer)
+[![Build Status](https://travis-ci.org/lependu/fastify-nodemailer.svg?branch=master)](https://travis-ci.org/lependu/fastify-nodemailer)
 [![Greenkeeper badge](https://badges.greenkeeper.io/lependu/fastify-nodemailer.svg)](https://greenkeeper.io/)
 
-Fastify nodemailer plugin, with this you can share the same nodemailer transport in every part of your server.
+Fastify nodemailer plugin, with this you can share the same nodemailer transporter in every part of your server.
 
 Under the hood the it wraps [nodemailer](https://github.com/nodemailer/nodemailer) transporter and the options that you pass to `register` will be passed to the transporter. For configuration/usage details please check the [nodemailer documentation](https://nodemailer.com/usage/).
 
