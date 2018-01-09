@@ -56,14 +56,15 @@ test('nodemailer#sendMail', t => {
 })
 
 test('Example', t => {
-  t.plan(2)
+  t.plan(3)
 
   const fastify = example()
 
   fastify.inject({
     method: 'GET',
     url: '/sendmail/baz@example.com'
-  }, res => {
+  }, (err, res) => {
+    t.error(err)
     let { statusCode, payload } = res
     t.equal(statusCode, 200)
     t.ok(~payload.indexOf('"baz@example.com"'))
