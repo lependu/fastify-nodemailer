@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "lint": "standard --fix",
-    "test": " npm run lint && tap test.js",
-    "coverage": "nyc tap test.js"
+    "test": " standard && tap test.js --cov --no-browser",
+    "coverage": "standard && tap test.js --cov --no-browser --coverage-report html"
   },
   "repository": {
     "type": "git",
@@ -25,7 +25,6 @@
   "homepage": "https://github.com/lependu/fastify-nodemailer#readme",
   "devDependencies": {
     "fastify": "^0.37.0",
-    "nyc": "^11.3.0",
     "standard": "^10.0.3",
     "tap": "^11.0.0"
   },
