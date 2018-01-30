@@ -5,12 +5,9 @@ const nodemailer = require('./')
 const build = (options) => {
   const fastify = Fastify(options)
 
-  fastify
-    .register(nodemailer, {
-      jsonTransport: true
-    }, err => {
-      if (err) throw err
-    })
+  fastify.register(nodemailer, {
+    jsonTransport: true
+  })
 
   fastify.route({
     method: 'GET',
