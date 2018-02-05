@@ -26,6 +26,6 @@ const close = (fastify, done) => {
 }
 
 module.exports = fp(fastifyNodemailer, {
-  fastify: '>=0.41.0',
+  fastify: '>=1.0.0-rc.1',
   name: 'fastify-nodemailer'
 })
