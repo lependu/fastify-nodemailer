@@ -3,6 +3,9 @@
   "version": "1.0.0-rc.1",
   "description": "Fastify nodemailer plugin",
   "main": "index.js",
+  "engines": {
+    "node": ">=6"
+  },
   "scripts": {
     "lint": "standard --fix",
     "test": " standard && tap test.js --cov --no-browser",
