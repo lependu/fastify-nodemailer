@@ -32,7 +32,7 @@
     "tap": "^11.1.0"
   },
   "dependencies": {
-    "fastify-plugin": "^0.2.2",
+    "fastify-plugin": "^1.0.0",
     "nodemailer": "^4.6.0"
   }
 }
