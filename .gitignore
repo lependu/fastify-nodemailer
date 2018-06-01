@@ -41,3 +41,6 @@ jspm_packages
 
 # vim swap files
 *.swp
+
+# npm package-lock.json
+package-lock.json
