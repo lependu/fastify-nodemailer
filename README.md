@@ -4,6 +4,7 @@
 [![Build Status](https://travis-ci.org/lependu/fastify-nodemailer.svg?branch=master)](https://travis-ci.org/lependu/fastify-nodemailer)
 [![Greenkeeper badge](https://badges.greenkeeper.io/lependu/fastify-nodemailer.svg)](https://greenkeeper.io/)
 [![Known Vulnerabilities](https://snyk.io/test/github/lependu/fastify-nodemailer/badge.svg)](https://snyk.io/test/github/lependu/fastify-nodemailer)
+[![Coverage Status](https://coveralls.io/repos/github/lependu/fastify-nodemailer/badge.svg?branch=master)](https://coveralls.io/github/lependu/fastify-nodemailer?branch=master)
 
 Fastify nodemailer plugin, with this you can share the same nodemailer transporter in every part of your server.
 
