@@ -1,16 +1,16 @@
 'use strict'
 
-const t = require('tap')
+const tap = require('tap')
 const Fastify = require('fastify')
 const nodemailer = require('./')
-const example = require('./example')
 
-const { test } = t
+const { test } = tap
 
 test('nodemailer exists', t => {
   t.plan(2)
 
   const fastify = Fastify()
+  t.tearDown(fastify.close.bind(fastify))
 
   fastify
     .register(nodemailer, {
@@ -20,14 +20,13 @@ test('nodemailer exists', t => {
       t.error(err)
       t.ok(fastify.nodemailer)
     })
-
-  fastify.close()
 })
 
 test('nodemailer#sendMail', t => {
   t.plan(6)
 
   const fastify = Fastify()
+  t.tearDown(fastify.close.bind(fastify))
 
   fastify
     .register(nodemailer, {
@@ -49,23 +48,4 @@ test('nodemailer#sendMail', t => {
         t.ok(~info.message.indexOf('"text":"bar"'))
       })
     })
-
-  fastify.close()
-})
-
-test('Example', t => {
-  t.plan(3)
-
-  const fastify = example()
-
-  fastify.inject({
-    method: 'GET',
-    url: '/sendmail/baz@example.com'
-  }, (err, res) => {
-    t.error(err)
-    let { statusCode, payload } = res
-    t.equal(statusCode, 200)
-    t.ok(~payload.indexOf('"baz@example.com"'))
-  })
-  fastify.close()
 })
