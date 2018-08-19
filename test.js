@@ -22,6 +22,20 @@ test('nodemailer exists', t => {
     })
 })
 
+test('createTransport error', t => {
+  t.plan(2)
+
+  const fastify = Fastify()
+  t.tearDown(fastify.close.bind(fastify))
+
+  fastify
+    .register(nodemailer, 'this will throw')
+    .ready(err => {
+      t.ok(err instanceof Error)
+      t.match(err.message, /Cannot create property 'mailer'/)
+    })
+})
+
 test('nodemailer#sendMail', t => {
   t.plan(6)
 
