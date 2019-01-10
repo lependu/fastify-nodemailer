@@ -33,6 +33,6 @@
   },
   "dependencies": {
     "fastify-plugin": "^1.2.1",
-    "nodemailer": "^5.0.0"
+    "nodemailer": "^4.6.8"
   }
 }
