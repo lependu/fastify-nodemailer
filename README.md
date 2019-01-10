@@ -18,6 +18,16 @@ Under the hood the it wraps [nodemailer](https://github.com/nodemailer/nodemaile
 npm i fastify-nodemailer --save
 ```
 
+## Versions
+
+The plugin supports the following `Fastify` and `Nodemailer` versions:  
+
+version | branch | fastify | nodemailer  
+--------|--------|---------|------------  
+1.x | [1.x](https://github.com/lependu/fastify-nodemailer/tree/1.x) | 1.x | 4.x  
+2.x | [2.x](https://github.com/lependu/fastify-nodemailer/tree/2.x) | 2.x | 4.x  
+3.x | [master](https://github.com/lependu/fastify-nodemailer) | 2.x | 5.x  
+
 ## Usage
 Add it to you project with `register` and you are done!
 You can access the transporter via `fastify.nodemailer` and *sendMail()* via `fastify.nodemailer.sendMail()`.
