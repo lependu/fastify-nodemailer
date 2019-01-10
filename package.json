@@ -27,12 +27,12 @@
   },
   "homepage": "https://github.com/lependu/fastify-nodemailer#readme",
   "devDependencies": {
-    "fastify": "^1.12.1",
-    "standard": "^12.0.0",
-    "tap": "^12.0.1"
+    "fastify": "^1.13.3",
+    "standard": "^12.0.1",
+    "tap": "^12.1.1"
   },
   "dependencies": {
-    "fastify-plugin": "^1.2.1",
-    "nodemailer": "^4.6.8"
+    "fastify-plugin": "^1.4.0",
+    "nodemailer": "^4.7.0"
   }
 }
