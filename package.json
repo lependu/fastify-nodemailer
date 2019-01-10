@@ -1,6 +1,6 @@
 {
   "name": "fastify-nodemailer",
-  "version": "1.4.1",
+  "version": "1.5.0",
   "description": "Fastify nodemailer plugin",
   "main": "index.js",
   "engines": {
