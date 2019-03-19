@@ -94,29 +94,33 @@ fastify.register(require('fastify-nodemailer'), sparkPostTransportInstance)
 Then, later:
 
 ```js
-const sendOptions = {
-  content: {
-    template_id: 'my_template_id',
-    use_draft_template: false
-  },
-  "recipients": [
-    {
-      "address": {
-        "email": "sender@example.com",
-        "name": "John Doe"
-      },
-      "substitution_data": {
-        username: "John Doe"
-      }
-    }
-  ]
-};
+fastify.get('/sendmail', (req, reply, next) => {
 
-fastify.nodemailer.sendMail(sendOptions, (err, info) => {
-  if (err) next(err)
-  reply.send({
-    messageId: info.messageId
+  const sendOptions = {
+    content: {
+      template_id: 'my_template_id',
+      use_draft_template: false
+    },
+    "recipients": [
+      {
+        "address": {
+          "email": "sender@example.com",
+          "name": "John Doe"
+        },
+        "substitution_data": {
+          username: "John Doe"
+        }
+      }
+    ]
+  };
+
+  fastify.nodemailer.sendMail(sendOptions, (err, info) => {
+    if (err) next(err)
+    reply.send({
+      messageId: info.messageId
+    })
   })
+
 })
 ```
 
