@@ -74,7 +74,9 @@ By default, passing an object as options to the plugin will configure nodemailer
 If you need a custom transport, simply initialize the transport, and pass it to the plugin instead of an options object. For example, using the `nodemailer-sparkpost-transport`:
 
 ```js
-const sparkPostTransport = require('nodemailer-sparkpost-transport');
+const fastify = require('fastify')()
+
+const sparkPostTransport = require('nodemailer-sparkpost-transport')
 
 const sparkPostTransportOptions = {
   sparkPostApiKey: 'MY_API_KEY'
@@ -110,12 +112,17 @@ const sendOptions = {
   ]
 };
 
-await this.nodemailer.sendMail(sendOptions);
+fastify.nodemailer.sendMail(sendOptions, (err, info) => {
+  if (err) next(err)
+  reply.send({
+    messageId: info.messageId
+  })
+})
 ```
 
 ## Multiple transports
 
-Since fastify-nodemailer fully supports Fastify's built-in encapsulation feature, all you need to do is register this plugin with your custom transporter and the corresponding route in a new context.
+Since fastify-nodemailer fully supports Fastify's built-in [encapsulation](https://www.fastify.io/docs/latest/Plugins-Guide/#register) feature, all you need to do is register this plugin with your custom transporter and the corresponding route in a new context.
 
 ## License
 
