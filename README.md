@@ -67,6 +67,55 @@ fastify.listen(3000, err => {
   console.log(`server listening on ${fastify.server.address().port}`)
 })
 ```
+## Custom transports
+
+By default, passing an object as options to the plugin will configure nodemailer's main transport (SMTP).
+
+If you need a custom transport, simply initialize the transport, and pass it to the plugin instead of an options object. For example, using the `nodemailer-sparkpost-transport`:
+
+```js
+const sparkPostTransport = require('nodemailer-sparkpost-transport');
+
+const sparkPostTransportOptions = {
+  sparkPostApiKey: 'MY_API_KEY'
+}
+
+fastify.register(require('fastify-nodemailer'), sparkPostTransport(sparkPostTransportOptions))
+
+// or
+
+const sparkPostTransportInstance = sparkPostTransport(sparkPostTransportOptions)
+
+fastify.register(require('fastify-nodemailer'), sparkPostTransportInstance)
+```
+
+Then, later:
+
+```js
+const sendOptions = {
+  content: {
+    template_id: 'my_template_id',
+    use_draft_template: false
+  },
+  "recipients": [
+    {
+      "address": {
+        "email": "sender@example.com",
+        "name": "John Doe"
+      },
+      "substitution_data": {
+        username: "John Doe"
+      }
+    }
+  ]
+};
+
+await this.nodemailer.sendMail(sendOptions);
+```
+
+## Multiple transports
+
+Since fastify-nodemailer fully supports Fastify's built-in encapsulation feature, all you need to do is register this plugin with your custom transporter and the corresponding route in a new context.
 
 ## License
 
