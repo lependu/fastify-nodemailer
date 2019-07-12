@@ -48,7 +48,7 @@ test('nodemailer#sendMail', t => {
     })
     .ready(err => {
       t.error(err)
-      let { nodemailer } = fastify
+      const { nodemailer } = fastify
       nodemailer.sendMail({
         from: 'sender@example.com',
         to: 'recipient@example.com',
@@ -70,12 +70,12 @@ test('customTransport', t => {
   const fastify = Fastify()
   t.tearDown(fastify.close.bind(fastify))
 
-  let transport = {
+  const transport = {
     name: 'minimal',
     version: '0.1.0',
     send: (mail, callback) => {
-      let envelope = mail.message.getEnvelope()
-      let messageId = mail.message.messageId()
+      const envelope = mail.message.getEnvelope()
+      const messageId = mail.message.messageId()
       callback(null, {
         envelope,
         messageId
@@ -87,7 +87,7 @@ test('customTransport', t => {
     .register(nodemailer, transport)
     .ready(err => {
       t.error(err)
-      let { nodemailer } = fastify
+      const { nodemailer } = fastify
       nodemailer.sendMail({
         from: 'sender@example.com',
         to: 'recipient@example.com',
