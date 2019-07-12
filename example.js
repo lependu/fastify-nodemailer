@@ -28,8 +28,8 @@ const build = (options) => {
     },
     handler: (req, reply, next) => {
       req.log.info('sendmail route')
-      let { nodemailer } = fastify
-      let recipient = req.params.email
+      const { nodemailer } = fastify
+      const recipient = req.params.email
 
       nodemailer.sendMail({
         from: 'sender@example.com',
@@ -39,7 +39,7 @@ const build = (options) => {
       }, (err, info) => {
         if (err) next(err)
 
-        let { messageId, envelope: { to } } = info
+        const { messageId, envelope: { to } } = info
         reply.send({
           messageId,
           recipient: to
