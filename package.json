@@ -29,15 +29,10 @@
   "devDependencies": {
     "fastify": "^2.13.1",
     "standard": "^14.0.0",
-    "tap": "^12.7.0"
+    "tap": "^14.10.7"
   },
   "dependencies": {
     "fastify-plugin": "^1.6.1",
     "nodemailer": "^6.4.6"
-  },
-  "greenkeeper": {
-    "ignore": [
-      "tap"
-    ]
   }
 }
