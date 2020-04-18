@@ -24,7 +24,7 @@ The plugin supports the following `Fastify` and `Nodemailer` versions. Please re
 
 version | branch | fastify | nodemailer | End of support
 --------|--------|---------|------------|---------------  
-1.x | [1.x](https://github.com/lependu/fastify-nodemailer/tree/1.x) | 1.x | 4.x | 2019-09-01   
+1.x | [1.x](https://github.com/lependu/fastify-nodemailer/tree/1.x) | 1.x | 4.x | EOL   
 2.x | [2.x](https://github.com/lependu/fastify-nodemailer/tree/2.x) | 2.x | 4.x | TBD  
 3.x | [master](https://github.com/lependu/fastify-nodemailer) | 2.x | 5.x | [Deprecated](https://github.com/nodemailer/nodemailer/issues/979)
 4.x | [master](https://github.com/lependu/fastify-nodemailer) | 2.x | 6.x | TBD
