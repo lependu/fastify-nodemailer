@@ -1,16 +1,13 @@
 'use strict'
 
-const tap = require('tap')
+const t = require('tap')
 const Fastify = require('fastify')
 const nodemailer = require('./')
 
-const { test } = tap
+t.jobs = 4
 
-test('nodemailer exists', t => {
-  t.plan(2)
-
+t.test('nodemailer exists', t => {
   const fastify = Fastify()
-  t.tearDown(fastify.close.bind(fastify))
 
   fastify
     .register(nodemailer, {
@@ -19,28 +16,26 @@ test('nodemailer exists', t => {
     .ready(err => {
       t.error(err)
       t.ok(fastify.nodemailer)
+      fastify.close()
+      t.end()
     })
 })
 
-test('createTransport error', t => {
-  t.plan(2)
-
+t.test('createTransport error', t => {
   const fastify = Fastify()
-  t.tearDown(fastify.close.bind(fastify))
 
   fastify
     .register(nodemailer, 'this will throw')
     .ready(err => {
       t.ok(err instanceof Error)
       t.match(err.message, /Cannot create property 'mailer'/)
+      fastify.close()
+      t.end()
     })
 })
 
-test('nodemailer#sendMail', t => {
-  t.plan(6)
-
+t.test('nodemailer#sendMail', t => {
   const fastify = Fastify()
-  t.tearDown(fastify.close.bind(fastify))
 
   fastify
     .register(nodemailer, {
@@ -60,15 +55,14 @@ test('nodemailer#sendMail', t => {
         t.equal(info.envelope.to[0], 'recipient@example.com')
         t.ok(~info.message.indexOf('"subject":"foo"'))
         t.ok(~info.message.indexOf('"text":"bar"'))
+        fastify.close()
+        t.end()
       })
     })
 })
 
-test('customTransport', t => {
-  t.plan(4)
-
+t.test('customTransport', t => {
   const fastify = Fastify()
-  t.tearDown(fastify.close.bind(fastify))
 
   const transport = {
     name: 'minimal',
@@ -97,6 +91,8 @@ test('customTransport', t => {
         t.error(err)
         t.equal(info.envelope.from, 'sender@example.com')
         t.equal(info.envelope.to[0], 'recipient@example.com')
+        fastify.close()
+        t.end()
       })
     })
 })
