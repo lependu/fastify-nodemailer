@@ -1,0 +1,10 @@
+version: 1
+  -package_manager: "javascript"
+    directory: "/"
+    update_schedlue: "daily"
+    target_branch: "master"
+    default_labels: 
+      - "latest"
+      - "5.x"
+      - "dependencies"
+
