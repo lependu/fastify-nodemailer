@@ -4,7 +4,7 @@
 [![Build Status](https://travis-ci.org/lependu/fastify-nodemailer.svg?branch=master)](https://travis-ci.org/lependu/fastify-nodemailer)
 [![Known Vulnerabilities](https://snyk.io/test/github/lependu/fastify-nodemailer/badge.svg)](https://snyk.io/test/github/lependu/fastify-nodemailer)
 [![Coverage Status](https://coveralls.io/repos/github/lependu/fastify-nodemailer/badge.svg?branch=master)](https://coveralls.io/github/lependu/fastify-nodemailer?branch=master)
-![npm (scoped)](https://img.shields.io/npm/v/fastify-webpack-hmr/latest)
+![](https://img.shields.io/github/v/tag/lependu/fastify-nodemailer?label=latest)
 ![npm](https://img.shields.io/npm/dm/fastify-nodemailer.svg)
 
 
