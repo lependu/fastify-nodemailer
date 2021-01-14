@@ -50,7 +50,7 @@ fastify.get('/sendmail/:email', (req, reply, next) => {
   let { nodemailer } = fastify
   let recipient = req.params.email
 
-  fastify.nodemailer.sendMail({
+  nodemailer.sendMail({
     from: 'sender@example.com',
     to: recipient,
     subject: 'foo',
