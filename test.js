@@ -96,3 +96,19 @@ t.test('customTransport', t => {
       })
     })
 })
+
+t.test('disposing resources', t => {
+  const fastify = Fastify()
+
+  fastify
+    .register(nodemailer, {
+      url: 'smtp-transport'
+    })
+    .ready(err => {
+      t.error(err)
+
+      fastify.close().then(() => {
+        t.end()
+      })
+    })
+})
