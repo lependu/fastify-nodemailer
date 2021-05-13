@@ -4,7 +4,7 @@ const t = require('tap')
 const Fastify = require('fastify')
 const nodemailer = require('./')
 
-t.jobs = 4
+t.jobs = 5
 
 t.test('nodemailer exists', t => {
   const fastify = Fastify()
@@ -92,6 +92,22 @@ t.test('customTransport', t => {
         t.equal(info.envelope.from, 'sender@example.com')
         t.equal(info.envelope.to[0], 'recipient@example.com')
         fastify.close()
+        t.end()
+      })
+    })
+})
+
+t.test('disposing resources', t => {
+  const fastify = Fastify()
+
+  fastify
+    .register(nodemailer, {
+      url: 'smtp-transport'
+    })
+    .ready(err => {
+      t.error(err)
+
+      fastify.close().then(() => {
         t.end()
       })
     })

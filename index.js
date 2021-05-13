@@ -22,6 +22,10 @@ const fastifyNodemailer = (fastify, options, next) => {
 }
 
 const close = (fastify, done) => {
+  if (fastify.nodemailer.transporter.on) {
+    fastify.nodemailer.transporter.on('close', done)
+  }
+
   fastify.nodemailer.close(done)
 }
 
