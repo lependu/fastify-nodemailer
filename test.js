@@ -4,7 +4,7 @@ const t = require('tap')
 const Fastify = require('fastify')
 const nodemailer = require('./')
 
-t.jobs = 4
+t.jobs = 5
 
 t.test('nodemailer exists', t => {
   const fastify = Fastify()
